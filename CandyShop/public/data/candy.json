@@ -1,0 +1,62 @@
+[
+    {
+        "title": "M&M's",
+        "dev": "Mars",
+        "image": "M&Ms.jpg"
+    },
+    {
+        "title": "Twizzlers",
+        "dev": "Hershey's",
+        "image": "Twizzlers.jpg"
+    },
+    {
+        "title": "Chocolate Carrots",
+        "dev": "Lindt",
+        "image": "ChocolateCarrots.jpg"
+    },
+    {
+        "title": "Laffy Taffy",
+        "dev": "Nestlé",
+        "image": "LaffyTaffy.jpg"
+    },
+    {
+        "title": "Chocolate Coins",
+        "dev": "Chocolove",
+        "image": "ChocolateCoins.jpg"
+    },
+    {
+        "title": "Rock Candy",
+        "dev": "Candy Crate",
+        "image": "RockCandy.jpg"
+    },
+    {
+        "title": "Kit Kat",
+        "dev": "Nestlé",
+        "image": "KitKat.jpg"
+    },
+    {
+        "title": "Army Men Gummies",
+        "dev": "Albanese",
+        "image": "ArmyMenGummies.jpg"
+    },
+    {
+        "title": "Starburst",
+        "dev": "Mars",
+        "image": "Starburst.jpg"
+    },
+    {
+        "title": "Reese's Pieces",
+        "dev": "Hershey's",
+        "image": "ReesesPieces.jpg"
+    },
+    {
+        "title": "Gummy Frogs",
+        "dev": "Haribo",
+        "image": "GummyFrogs.jpg"
+    },
+    {
+        "title": "Candy Canes",
+        "dev": "Spangler",
+        "image": "CandyCanes.jpg"
+    }
+]
