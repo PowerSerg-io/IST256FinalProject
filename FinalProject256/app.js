@@ -19,11 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/getList', function(request, response){
-  response.setHeader('Content-type', 'application/json')
-  response.json(candy)
-})
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
