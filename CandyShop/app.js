@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var candy = require('./public/data/candy.json')
 var app = express();
 
 // view engine setup
@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/getList', function(request, response){
-  response.setHeader('Content-type', 'application/json')
+  response.setHeader('Content-Type', 'application/json')
   response.json(candy)
 })
 
