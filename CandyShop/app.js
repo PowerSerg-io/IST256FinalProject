@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var rating = require('./public/data/rating.json')
+
 var candy = require('./public/data/candy.json')
 var app = express();
 
@@ -22,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/getList', function(request, response){
   response.setHeader('Content-Type', 'application/json')
   response.json(candy)
+})
+
+app.get('/getRatingsList', function(req, res){
+  res.setHeader('Content-Type', 'application/json')
+  res.json(rating)
 })
 
 app.use('/', indexRouter);

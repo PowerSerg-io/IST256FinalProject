@@ -1,0 +1,32 @@
+[
+    {
+        "idx": 0,
+        "title": "M&Ms",
+        "image": "m&ms.jpg",
+        "rating": 4
+    },
+    {
+        "idx": 1,
+        "title": "Kit Kat",
+        "image": "kitkat.jpg",
+        "rating": 3
+    },
+    {
+        "idx": 2,
+        "title": "Reese's Pieces",
+        "image": "reesespieces.jpg",
+        "rating": 4
+    },
+    {
+        "idx": 3,
+        "title": "Starburst",
+        "image": "starburst.jpg",
+        "rating": 2
+    },
+    {
+        "idx": 4,
+        "title": "Twizzlers",
+        "image": "twizzlers.jpg",
+        "rating": 1
+    }
+]
