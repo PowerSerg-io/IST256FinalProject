@@ -67,21 +67,6 @@ function updateRating(rating) {
         });
 }
 
-app.post('/submitRating', function(req, res) {
-    const { idx, rating } = req.body;
 
-    // Find the candy with the matching idx
-    const candy = rating.find(item => item.idx === idx);
-    if (candy) {
-        candy.rating = rating;  // Update the rating
 
-        // Write the updated ratings back to the file
-        fs.writeFile('./public/data/rating.json', JSON.stringify(rating, null, 2), (err) => {
-            if (err) return res.status(500).json({ success: false, error: 'Failed to save rating.' });
-            res.json({ success: true, updatedData: candy });
-        });
-    } else {
-        res.status(404).json({ success: false, error: 'Candy not found.' });
-    }
-});
 

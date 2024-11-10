@@ -51,4 +51,41 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post('/submitRating', function(req, res) {
+  const { idx, rating } = req.body;
+
+  // Read the current data from rating.json
+  fs.readFile(ratingFilePath, 'utf8', (err, data) => {
+      if (err) {
+          console.error('Error reading rating.json:', err);
+          return res.status(500).json({ success: false, error: 'Failed to read rating data.' });
+      }
+
+      let ratings;
+      try {
+          ratings = JSON.parse(data);
+      } catch (parseErr) {
+          console.error('Error parsing rating.json:', parseErr);
+          return res.status(500).json({ success: false, error: 'Failed to parse rating data.' });
+      }
+
+      // Find the candy with the matching idx
+      const candy = ratings.find(item => item.idx === parseInt(idx, 10));
+      if (candy) {
+          candy.rating = parseInt(rating, 10);  // Update the rating
+
+          // Write the updated ratings back to the file
+          fs.writeFile(ratingFilePath, JSON.stringify(ratings, null, 2), (writeErr) => {
+              if (writeErr) {
+                  console.error('Error writing to rating.json:', writeErr);
+                  return res.status(500).json({ success: false, error: 'Failed to save rating.' });
+              }
+              res.json({ success: true, updatedData: candy });
+          });
+      } else {
+          res.status(404).json({ success: false, error: 'Candy not found.' });
+      }
+  });
+});
+
 module.exports = app;
