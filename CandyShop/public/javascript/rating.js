@@ -72,10 +72,10 @@ function updateRating(rating) {
                 alert('Failed to submit rating. Response was not successful.');
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('Request failed:', textStatus, errorThrown);  // Log details of the failure
-            alert('Error submitting rating. Please try again.');
-        }
+        // error: function(jqXHR, textStatus, errorThrown) {
+        //     console.error('Request failed:', textStatus, errorThrown);  // Log details of the failure
+        //     alert('Error submitting rating. Please try again.');
+        // }
     });
 }
 
