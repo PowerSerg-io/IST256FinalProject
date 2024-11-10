@@ -12,27 +12,31 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./javascript/rating.js"></script>
-
-
 </head>
 <body onload="loadAllRatings()">
-    <h1>Rate the candies to your liking!</h1>
+    <div class="container">
+        <h1>Rate the candies to your liking!</h1>
 
-    <div id="leftNav"></div>
+        <!-- Navigation for candy selection -->
+        <div id="leftNav" class="mb-3"></div>
 
-    <div id="content">
-        <span id="idx">1
-        </span>
-        <p id="title">Title</p>
-        <img id="photo" src="./images/m&ms.jpg" width="200px"/>
-        <label>5</label> stars for <label>Candy</label>
-        <br />
-        <img width="50" class="star" src="./images/star.jpg"/>
-        <img width="50" class="star" src="./images/star.jpg"/>
-        <img width="50" class="star" src="./images/star.jpg"/>
-        <img width="50" class="star" src="./images/star.jpg"/>
-        <img width="50" class="star" src="./images/star.jpg"/>
+        <!-- Content display for selected candy -->
+        <div id="content">
+            <span id="idx" class="d-none"></span> <!-- Hidden index for selected candy -->
+            <p id="title" class="h4">Title</p>
+            <img id="photo" src="./images/m&ms.jpg" width="200px" class="mb-2"/>
+
+            <p><label id="daysLabel">5</label> stars for <label id="locationLabel">Candy</label></p>
+            
+            <!-- Star rating display -->
+            <div class="d-flex">
+                <img width="50" class="star" src="./images/star.jpg" />
+                <img width="50" class="star" src="./images/star.jpg" />
+                <img width="50" class="star" src="./images/star.jpg" />
+                <img width="50" class="star" src="./images/star.jpg" />
+                <img width="50" class="star" src="./images/star.jpg" />
+            </div>
+        </div>
     </div>
-
 </body>
 </html>
