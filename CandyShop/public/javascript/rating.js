@@ -33,15 +33,23 @@ function setRating(data) {
     $('label#daysLabel').html(data.days);
     $('label#locationLabel').html(data.location);
 
-    // Set up star rating display
-    $('.star').each(function(index) {
-        $(this).attr('src', index < data.rating ? './images/star.jpg' : './images/empty.png');
+    // Display stars based on the current rating
+    displayStars(data.rating);
 
-        // Allow user to rate by clicking stars
+    // Allow user to rate by clicking stars
+    $('.star').each(function(index) {
         $(this).off('click').click(function() {
             var newRating = index + 1;  // Rating is 1-based
-            updateRating(newRating);
+            displayStars(newRating);    // Update stars visually
+            updateRating(newRating);    // Send rating to server
         });
+    });
+}
+
+// Function to update star images based on rating
+function displayStars(rating) {
+    $('.star').each(function(index) {
+        $(this).attr('src', index < rating ? './images/star.jpg' : './images/empty.png');
     });
 }
 
@@ -51,8 +59,11 @@ function updateRating(rating) {
     
     console.log('Sending data:', data); // Log the data sent to server
 
-    $.post('/submitRating', data)
-        .done(function(response) {
+    $.post({
+        url: '/submitRating',
+        data: JSON.stringify(data),          // Ensure data is sent as JSON
+        contentType: 'application/json',     // Specify JSON format
+        success: function(response) {
             console.log('Server response:', response);
             if (response.success) {
                 alert('Rating submitted successfully!');
@@ -60,11 +71,12 @@ function updateRating(rating) {
             } else {
                 alert('Failed to submit rating. Response was not successful.');
             }
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
             console.error('Request failed:', textStatus, errorThrown);  // Log details of the failure
             alert('Error submitting rating. Please try again.');
-        });
+        }
+    });
 }
 
 
