@@ -8,10 +8,21 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var rating = require('./public/data/rating.json')
-
 var candy = require('./public/data/candy.json')
 var app = express();
 
+/*
+//mongo connect
+var MongoClient = require('mongodb').MongoClient
+dbClientPromise = MongoClient.connect('mongodb://localhost:27017/')
+
+async function getClient(){
+  return await MongoClient.connect('mongodb://localhost:27017/')
+
+}
+
+
+*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -21,10 +32,50 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//faves
+
+/*
+app.post('/markFavorite', async function(req, res){
+
+  const dbClient = await getClient()
+  const dbObject = dbClient.db('newCandyDatabase')
+  const collection = dbObject.collection('candies')
+  const allCandies = await collection.find({}).toArray();
+
+  const currentRating = allCandies[req.body.idx].fav
+  const filter = { idx: parseInt(req.body.idx) };
+  const updateDoc = { $set: { fav: !currentRating } };
+  const options = { upsert: false };
+  const result = await collection.updateOne(filter, updateDoc, options)
+  console.log("result:", result)
+
+  const updatedCandy = await collection.find(filter).toArray();
+
+  res.setHeader('Content-Type', 'application/json')
+  res.json(candies[req.body.idx])
+
+})
+*/
+//display
+/*
+app.get('/getList', async function(request, response){
+
+  const dbClient = await getClient()
+  const dbObject = dbClient.db('newCandyDatabase')
+  const collection = dbObject.collection('candies')
+  const allCandies = await collection.find({}).toArray();
+
+  response.setHeader('Content-Type', 'application/json')
+  response.json(candy  //put allCandies
+  )
+})
+*/
 
 app.get('/getList', function(request, response){
+
   response.setHeader('Content-Type', 'application/json')
-  response.json(candy)
+  response.json(candy  //put allCandies
+  )
 })
 
 app.get('/getRatingsList', function(req, res){

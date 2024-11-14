@@ -21,3 +21,12 @@ function updateCandy(jsonList) {
         $('#candyContainer').append(candyItem);
     });
 }
+let selectedCandies = [];
+
+$(document).on('click', '#candyList li', function () {
+    const candyTitle = $(this).text();
+    const selectedCandy = { title: candyTitle };
+    selectedCandies.push(selectedCandy);
+    localStorage.setItem("selectedCandies", JSON.stringify(selectedCandies));
+});
+
