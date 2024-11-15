@@ -4,7 +4,7 @@
         "dev": "Mars",
         "image": "M&Ms.jpg",
         "idx": 0,
-        "value": "false"
+        "fav": "false"
     
     },
     {
@@ -12,77 +12,78 @@
         "dev": "Hershey's",
         "image": "Twizzlers.jpg",
         "idx": 1,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Chocolate Carrots",
         "dev": "Lindt",
         "image": "ChocolateCarrots.jpg",
         "idx": 2,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Laffy Taffy",
         "dev": "Nestlé",
         "image": "LaffyTaffy.jpg",
         "idx": 3,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Chocolate Coins",
         "dev": "Chocolove",
         "image": "ChocolateCoins.jpg",
         "idx": 4,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Rock Candy",
         "dev": "Candy Crate",
         "image": "RockCandy.jpg",
         "idx": 5,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Kit Kat",
         "dev": "Nestlé",
         "image": "KitKat.jpg",
         "idx": 6,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Army Men Gummies",
         "dev": "Albanese",
         "image": "ArmyMenGummies.jpg",
         "idx": 7,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Starburst",
         "dev": "Mars",
         "image": "Starburst.jpg",
         "idx": 8,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Reese's Pieces",
         "dev": "Hershey's",
         "image": "ReesesPieces.jpg",
         "idx": 9,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Gummy Frogs",
         "dev": "Haribo",
         "image": "GummyFrogs.jpg",
         "idx": 10,
-        "value": "false"
+        "fav": "false"
     },
     {
         "title": "Candy Canes",
         "dev": "Spangler",
         "image": "CandyCanes.jpg",
         "idx": 11,
-        "value": "false"
+        "fav": "false"
     }
     
 ]
+  
