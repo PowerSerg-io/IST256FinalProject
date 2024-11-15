@@ -12,6 +12,49 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./javascript/rating.js"></script>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            color: #660033;
+        }
+
+        h1 {
+            color: #ff66b2;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #leftNav {
+            background-color: #ffb3d9;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        #content {
+            background-color: #ffcce6;
+            border: 2px solid #ff99cc;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        #title {
+            color: #99004d;
+        }
+
+        #daysLabel, #locationLabel {
+            font-weight: bold;
+            color: #cc0066;
+        }
+
+        .star {
+            filter: hue-rotate(-20deg) saturate(120%);
+        }
+
+        .container img {
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body onload="loadAllRatings()">
     <div class="container">
@@ -40,3 +83,4 @@
     </div>
 </body>
 </html>
+
