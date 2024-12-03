@@ -8,11 +8,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var rating = require('./public/data/rating.json')
-var candy = require('./public/data/candy.json')
+//var candy = require('./public/data/candy.json')
 var app = express();
 
-/*
-//mongo connect
+
+//mongo setup
 var MongoClient = require('mongodb').MongoClient
 dbClientPromise = MongoClient.connect('mongodb://localhost:27017/')
 
@@ -21,8 +21,6 @@ async function getClient(){
 
 }
 
-
-*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -32,9 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//faves
 
-/*
+//faves
 app.post('/markFavorite', async function(req, res){
 
   const dbClient = await getClient()
@@ -52,12 +49,31 @@ app.post('/markFavorite', async function(req, res){
   const updatedCandy = await collection.find(filter).toArray();
 
   res.setHeader('Content-Type', 'application/json')
-  res.json(candies[req.body.idx])
+  res.json(updatedCandy[0])
 
 })
-*/
-//display
+
+app.get('/getList', async function (request, response) {
+  try {
+      const dbClient = await getClient();
+      const dbObject = dbClient.db('newCandyDatabase');
+      const collection = dbObject.collection('candies');
+      const allCandies = await collection.find({}).toArray();
+
+      console.log('Fetched candies from MongoDB:', allCandies);
+
+      response.setHeader('Content-Type', 'application/json');
+      response.json(allCandies);
+  } catch (err) {
+      console.error('Error fetching candies:', err);
+      response.status(500).send('Database error');
+  }
+});
+
+
+
 /*
+//display
 app.get('/getList', async function(request, response){
 
   const dbClient = await getClient()
@@ -66,17 +82,17 @@ app.get('/getList', async function(request, response){
   const allCandies = await collection.find({}).toArray();
 
   response.setHeader('Content-Type', 'application/json')
-  response.json(candy  //put allCandies
-  )
+  response.json(allCandies)
 })
 */
-
+/*
 app.get('/getList', function(request, response){
 
   response.setHeader('Content-Type', 'application/json')
   response.json(candy  //put allCandies
   )
 })
+*/
 
 app.get('/getRatingsList', function(req, res){
   res.setHeader('Content-Type', 'application/json')
